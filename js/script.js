@@ -23,3 +23,25 @@ if (hamburger === 3 && cola === 1 && fries) {
 }else {
 	console.log('lets go to another place');
 }
+
+
+
+const hamburger = 3;
+const fries = 3;
+const cola = 0;
+const nuggets=2;
+
+if (hamburger === 3 && cola === 2 || fries === 3 && nuggets) {
+	console.log('All Good !!!');
+}else {
+	console.log('lets go to another place');
+};
+console.log(hamburger === 3 && cola === 2 || fries === 3 && nuggets);
+
+
+let johnReport, alexReport, samReport, mariReport = 'done';
+console.log(johnReport || alexReport || samReport || mariReport);
+
+console.log(!0);
+
+
