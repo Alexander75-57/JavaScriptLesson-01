@@ -18,7 +18,7 @@ if (num < 49) {
 
 (num === 50) ? console.log('Ok!') : console.log('Error');
 
-const num = 50;
+const num = 51;
 
 switch (num) {
 	case 49:
