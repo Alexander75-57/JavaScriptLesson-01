@@ -67,3 +67,12 @@ for (let i = 2; i <= 16; i++) {
 		console.log(i);
 	}
 }
+
+let num = 2;
+while (num < 16) {
+	num++;
+	if (num % 2 !== 0) {
+		console.log(num);
+	}	
+	
+}
