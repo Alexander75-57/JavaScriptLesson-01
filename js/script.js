@@ -113,7 +113,7 @@ function secondTask() {
     // Пишем решение вот тут
     
 	for (let i = 0; i <= arr.length; i++) {
-		if data[i] === Number  {
+		if (typeof data[i] === 'number')  {
 			data[i] = (arr[i]*2);
 		}
 		else {
