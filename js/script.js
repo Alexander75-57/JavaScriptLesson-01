@@ -1,127 +1,33 @@
 'use strict';
 
-for (let i = 0; i < 3; i++) {
-	console.log(i)
-	for (let j = 20; j < 23; j++) {
-		console.log(j)
-	}
+let num = 20;
+
+function showFirstMessage(text) {
+	console.log(text);
+	num = 5;
 }
 
-//*
-//**
-//***
-//****
-//*****
-//******
+showFirstMessage('Helloy World!');
+console.log(num);
 
-let result = '';
-const length = 7;
-
-for (let i  = 1; i < length; i++ ){
-	for (let j = 0; j < i; j++){
-		result +="*";
-	}
-
-	result += '\n';
+function calc(a, b) {
+	return (a + b);
 }
 
-console.log(result);
+console.log(calc(4, 3));
+console.log(calc(5, 6));
+console.log(calc(10, 8));
 
-
-first: for (let i = 0; i < 3; i++) {
-	console.log(`First Level: ${i}`);
-	for (let j = 0; j < 3; j++) {
-		console.log(`Second Level: ${j}`);
-		for (let k = 0; k < 3; k++) {
-			if (k === 2) continue first;
-			console.log(`Third Level: ${k}`);
-		}
-	}
-}
-// Tasks
-// 1
-let num = 5;
-while (num <= 10) {
-	console.log(num);
-	num++;
+function ret() {
+	let num = 50;
+	return num;
 }
 
-//2
-for (let i = 20; i >= 10; i--) {
-	if (i === 13) break;
-	console.log(i);
-}
-
-//3
-for (let i = 2; i <= 10; i++) {
-	if (i % 2 === 0)
-	console.log(i);
-}
-
-//4
-
-for (let i = 2; i <= 16; i++) {
-	if (i % 2 === 0) {
-		continue;
-	} else {
-		console.log(i);
-	}
-}
-
-let num = 2;
-while (num < 16) {
-	num++;
-	if (num % 2 !== 0) {
-		console.log(num);
-	}	
-	
-}
-
-function fifthTask() {
-    const arrayOfNumbers = [];
-	for (let i = 5; i < 11; i++) {
-        arrayOfNumbers[i - 5] = i;
-    }
-
-    console.log(arrayOfNumbers);
-    return arrayOfNumbers;
-}
-
-// Место для первой задачи
-function firstTask() {
-    // Значения массива менять нельзя, тут он проверяется автоматически именно на эти значения
-    const arr = [3, 5, 8, 16, 20, 23, 50];
-    const result = [];
-
-    // Пишем решение вот тут
- 	
-	for (let i = 0; i < arr.length; i++) {
-		result[i] = arr[i];
-	}
-	console.log(result);
-	    
-    // Не трогаем
-    return result;
-}
+const anotherNum = ret();
+console.log(anotherNum);
 
 
-// Место для второй задачи
-function secondTask() {
-    // Значения массива менять нельзя, тут он проверяется автоматически именно на эти значения
-    const data = [5, 10, 'Shopping', 20, 'Homework'];
-
-    // Пишем решение вот тут
-    
-	for (let i = 0; i <= arr.length; i++) {
-		if (typeof data[i] === 'number')  {
-			data[i] = (arr[i]*2);
-		}
-		else {
-			data[i] = 'arr[i] - done';
-		} 
-	}
-	console.log(result);
-    
-    // Не трогаем
-    return data;
-}
+const logger = function() {
+	console.log('Helloy !!!')
+}; 
+logger();
