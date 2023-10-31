@@ -41,3 +41,34 @@ logger();
 //----------------------------------
 
 const calc = (a, b) => a + b;
+
+//-----------------------------------
+
+const usdCurr = 38;
+const eurCurr = 42;
+
+function convert(amount, curr ) {
+	console.log(amount * curr);
+}
+convert(500, usdCurr);
+convert(500, eurCurr);
+
+// ---------------------------------
+
+const usdCurr = 38;
+const discount = 0.9; 
+
+function convert(amount, curr ) {
+	return amount * curr;
+}
+
+function promotion(result) {
+	console.log(result * discount);
+}
+
+const res = convert(500, usdCurr)
+promotion(res);
+
+// ---------------------------------
+
+
