@@ -88,3 +88,17 @@ console.log(doNothing() === undefined);
 
 //------------------------------------
 
+function sayHello(name) {
+	return `Привет, ${name} !`;
+}
+console.log(sayHello('Антон'));
+
+//------------------------------------
+
+function returnNeighboringNumbers(num) {
+	return [(num-1),num,(num+1)];
+}
+
+console.log(returnNeighboringNumbers(5));
+
+//---------------------------------------
