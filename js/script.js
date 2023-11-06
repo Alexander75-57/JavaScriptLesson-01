@@ -102,3 +102,13 @@ function returnNeighboringNumbers(num) {
 console.log(returnNeighboringNumbers(5));
 
 //---------------------------------------
+
+function getMathResult(num, how) {
+	for (let i=1; i<=how; i++) {
+		result=(num*i + '---');
+		if (i === how) result=num*i;
+		console.log(result);
+	}
+		
+}
+getMathResult(5, 3);
