@@ -124,3 +124,13 @@ function getMathResult(num, how) {
 	console.log(result);
 }
 getMathResult(5, 3);
+
+//----------------------------------
+
+const str = "test";
+const arr = [1, 4, 16];
+
+console.log(arr.length);
+console.log(arr[1]);
+
+//-----------------------------------
