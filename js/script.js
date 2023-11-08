@@ -104,11 +104,23 @@ console.log(returnNeighboringNumbers(5));
 //---------------------------------------
 
 function getMathResult(num, how) {
-	for (let i=1; i<=how; i++) {
-		result=(num*i + '---');
-		if (i === how) result=num*i;
-		console.log(result);
-	}
+	
+	if (typeof(how) !== 'number' || how <= 0) {
+        console.log(num);
+    }
+
+	let result = '';
+
+	for (let i = 1; i <= how; i++) {
 		
+		if (i === how) {
+			result += `${num * i}`;	
+
+		} else {
+			result += `${num * i}---`; 
+		}
+
+	}
+	console.log(result);
 }
 getMathResult(5, 3);
