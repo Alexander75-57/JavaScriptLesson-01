@@ -142,4 +142,15 @@ const test = "12.2px";
 console.log(parseInt(test));
 console.log(parseFloat(test));
 
+//29
 //-----------------------------------
+
+function calculateVolumeAndArea(lenth) {
+	if (typeof(lenth) === "number" & Number.isInteger(lenth) & lenth > 0) {
+			console.log(`Объем куба: ${(lenth*lenth*lenth)},`, `площадь всей поверхности: ${(6*lenth*lenth)}`);
+	} else {
+		console.log(`При вычислении произошла ошибка`);
+	} 
+}
+calculateVolumeAndArea(5);
+//-------------------------------
