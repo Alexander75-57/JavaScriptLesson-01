@@ -146,11 +146,60 @@ console.log(parseFloat(test));
 //-----------------------------------
 
 function calculateVolumeAndArea(lenth) {
-	if (typeof(lenth) === "number" & Number.isInteger(lenth) & lenth > 0) {
-			console.log(`Объем куба: ${(lenth*lenth*lenth)},`, `площадь всей поверхности: ${(6*lenth*lenth)}`);
+	if (typeof (lenth) !== 'number' || !Number.isInteger(lenth) || lenth < 0) {
+		return "При вычислении произошла ошибка";
 	} else {
-		console.log(`При вычислении произошла ошибка`);
+		return `Объем куба: ${(lenth*lenth*lenth)}, площадь всей поверхности: ${(6*lenth*lenth)}`;
 	} 
 }
 calculateVolumeAndArea(5);
+calculateVolumeAndArea(15);
+calculateVolumeAndArea(15.5);
+calculateVolumeAndArea('15');
+calculateVolumeAndArea(-15);
 //-------------------------------
+
+function getCoupeNumber(place) {
+	if (typeof(place) !== 'number' || !Number.isInteger(place) || place < 0) {
+		console.log("Ошибка. Проверьте правильность введенного номера места");
+	} else {
+		if ( place >=1 & place <=4) {
+			console.log(1);
+		}
+		if ( place >=5 & place <=8) {
+			console.log(2);
+		}
+		if ( place >=9 & place <=12) {
+			console.log(3);
+		}
+		if ( place >=13 & place <=16) {
+			console.log(4);
+		}
+		if ( place >=17 & place <=20) {
+			console.log(5);
+		}
+		if ( place >=21 & place <=24) {
+			console.log(6);
+		}
+		if ( place >=25 & place <=28) {
+			console.log(7);
+		}
+		if ( place >=29 & place <=32) {
+			console.log(8);
+		}
+		if ( place >=33 & place <=36) {
+			console.log(9);
+		}
+		if ( place === 0 || place > 36) {
+			console.log("Таких мест в вагоне не существует");
+		}		
+	} 
+}
+getCoupeNumber(33);
+getCoupeNumber(7);
+getCoupeNumber(300);
+getCoupeNumber(0);
+getCoupeNumber(7.7);
+getCoupeNumber(-10);
+getCoupeNumber('Hello');
+//-----------------------------------
