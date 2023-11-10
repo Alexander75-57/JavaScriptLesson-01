@@ -161,37 +161,37 @@ calculateVolumeAndArea(-15);
 
 function getCoupeNumber(place) {
 	if (typeof(place) !== 'number' || !Number.isInteger(place) || place < 0) {
-		console.log("Ошибка. Проверьте правильность введенного номера места");
+		return "Ошибка. Проверьте правильность введенного номера места";
 	} else {
 		if ( place >=1 & place <=4) {
-			console.log(1);
+			return 1;
 		}
 		if ( place >=5 & place <=8) {
-			console.log(2);
+			return 2;
 		}
 		if ( place >=9 & place <=12) {
-			console.log(3);
+			return 3;
 		}
 		if ( place >=13 & place <=16) {
-			console.log(4);
+			return 4;
 		}
 		if ( place >=17 & place <=20) {
-			console.log(5);
+			return 5;
 		}
 		if ( place >=21 & place <=24) {
-			console.log(6);
+			return 6;
 		}
 		if ( place >=25 & place <=28) {
-			console.log(7);
+			return 7;
 		}
 		if ( place >=29 & place <=32) {
-			console.log(8);
+			return 8;
 		}
 		if ( place >=33 & place <=36) {
-			console.log(9);
+			return 9;
 		}
 		if ( place === 0 || place > 36) {
-			console.log("Таких мест в вагоне не существует");
+			return "Таких мест в вагоне не существует";
 		}		
 	} 
 }
@@ -202,4 +202,30 @@ getCoupeNumber(0);
 getCoupeNumber(7.7);
 getCoupeNumber(-10);
 getCoupeNumber('Hello');
+
 //-----------------------------------
+
+function getTimeFromMinutes(minutes) {
+	let hours = 0;
+	if (typeof(minutes) !== 'number' || !Number.isInteger(minutes) || minutes < 0 ) {
+		console.log("Ошибка, проверьте данные");
+	}else {
+		hours = Math.trunc(minutes/60);
+		if (hours !== 1 & hours !== 2 & hours !== 3 & hours !== 4) {
+			console.log(`Это ${hours} часов и ${minutes - (hours*60)} минут`);
+		}
+		if (hours == 1 & hours == 21 & hours == 31) {
+			console.log(`Это ${hours} час и ${minutes - (hours*60)} минут`);
+			return
+		}
+		else {
+			console.log(`Это ${hours} часа и ${minutes - (hours*60)} минут`);
+		}		
+	}
+}
+getTimeFromMinutes(150);
+getTimeFromMinutes(50);
+getTimeFromMinutes(0);
+getTimeFromMinutes(-150);
+
+//-------------------------------------------------
