@@ -211,21 +211,80 @@ function getTimeFromMinutes(minutes) {
 		console.log("Ошибка, проверьте данные");
 	}else {
 		hours = Math.trunc(minutes/60);
-		if (hours !== 1 & hours !== 2 & hours !== 3 & hours !== 4) {
-			console.log(`Это ${hours} часов и ${minutes - (hours*60)} минут`);
+		if (hours == 2 || hours == 3 || hours == 4 || hours == 22 || hours == 23 || hours == 24 || hours == 32 || hours == 33 || hours == 34) {
+			console.log(`Это ${hours} часа и ${minutes - (hours*60)} минут`);
 		}
-		if (hours == 1 & hours == 21 & hours == 31) {
+		else if (hours == 1 || hours == 21 || hours == 31) {
 			console.log(`Это ${hours} час и ${minutes - (hours*60)} минут`);
-			return
 		}
 		else {
-			console.log(`Это ${hours} часа и ${minutes - (hours*60)} минут`);
-		}		
+			console.log(`Это ${hours} часов и ${minutes - (hours*60)} минут`);
+		}
+					
 	}
 }
 getTimeFromMinutes(150);
 getTimeFromMinutes(50);
-getTimeFromMinutes(0);
+getTimeFromMinutes(500);
+getTimeFromMinutes(240);
 getTimeFromMinutes(-150);
 
 //-------------------------------------------------
+
+function findMaxNumber(a, b, c, d) {
+	if (typeof(a) !== 'number' || typeof(b) !== 'number'|| typeof(c) !== 'number' || typeof(d) !== 'number' ) {
+		console.log(0);
+	} else {
+		if (a > b & a > c & a > d) {
+			console.log(a);
+		}
+		else if (b > a & b > c & b > d) {
+			console.log(b);
+		}
+		else if (c > a & c > b & c > d) {
+			console.log(b);
+		}
+		else if (d > a & d > b & d > c) {
+			console.log(d);
+		}
+	}
+}
+
+findMaxNumber(1, 5, 6.6, 11);
+findMaxNumber(1, 5, '6', '10');
+findMaxNumber(1, 15, 6.6, 11);
+
+// ----------------------------------------------
+
+function fib(number) {
+    if (typeof(number) !== 'number' || number == 0 || !Number.isInteger(number)) {
+		console.log(``);
+	}
+		else {
+			if (number == 1) {
+			console.log("0");
+		}
+		else if (number == 2) {
+			console.log("0 1");			
+		}
+		else if (number == 3) {
+			console.log("0 1 1");
+		}
+		else {
+			let a = 0;
+		    let b = 1;
+			let result = `${a} ${b} ${(a+b)} ${(b+(a+b))}`;
+			for (let i = 4; i < number ; i++) {	
+				let c = a + b;
+				a = b;
+				b = c		
+				result += ` ${a + b + c} `;		
+			}
+			console.log(result);
+		}
+	}
+	
+}
+fib(6.6);
+
+// -------------------------------------------------
