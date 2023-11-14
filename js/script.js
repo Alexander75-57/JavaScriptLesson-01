@@ -366,4 +366,21 @@ console.log(Object.keys(options).length);
 
 //--------------------------------
 
+const options = {
+	name: 'test',
+	width: 1024,
+	height: 1024,
+	colors: {
+		border: 'black',
+		backgrount: 'red'
+	},
+	makeTest: function() {
+		console.log("Test");
+	}
+};
+
+options.makeTest();
+
+const {border, backgrount} = options.colors;
+console.log(border);
 
