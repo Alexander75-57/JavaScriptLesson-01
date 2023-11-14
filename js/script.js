@@ -285,6 +285,85 @@ function fib(number) {
 	}
 	
 }
-fib(6.6);
+fib(6);
 
 // -------------------------------------------------
+
+function first () {
+	// Do something
+	setTimeout(function () {
+		console.log(1);
+	}, 500);
+}
+
+function second () {
+	console.log(2);
+}
+first();
+second();
+
+//------------------------------------------------
+
+function learnJS(lang, callback) {
+	console.log(`Я учу: ${lang}`);
+	callback();
+}
+function done() {
+	console.log('Я прошёл этот урок!');
+}
+learnJS('JavaScript', done);
+
+// 31 ------------------------------------------------
+
+const options = {
+	name: 'test',
+	width: 1024,
+	height: 1024,
+	colors: {
+		border: 'black',
+		backgrount: 'red'
+	}
+};
+
+// console.log(options["colors"]["border"]);
+// delete options.name;
+// console.log(options);
+
+let counter = 0;
+
+for (let key in options) {
+	if (typeof(options[key]) === 'object') {
+		for (let keyColors in options[key]) {
+			console.log(`Свойство ${keyColors} имеет значение ${options[key][keyColors]}`);
+			counter++;
+		}
+	} else {
+		console.log(`Свойство ${key} имеет значение ${options[key]}`);
+		counter++;
+	}
+}
+console.log(counter);
+
+// ----------------------------
+
+const options = {
+	name: 'test',
+	width: 1024,
+	height: 1024,
+	colors: {
+		border: 'black',
+		backgrount: 'red'
+	},
+	makeTest: function() {
+		console.log("Test");
+	}
+};
+
+options.makeTest();
+
+//console.log(Object.keys(options));
+console.log(Object.keys(options).length);
+
+//--------------------------------
+
+
