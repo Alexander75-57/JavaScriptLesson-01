@@ -328,7 +328,7 @@ const options = {
 // console.log(options["colors"]["border"]);
 // delete options.name;
 // console.log(options);
-
+ 
 let counter = 0;
 
 for (let key in options) {
@@ -384,3 +384,56 @@ options.makeTest();
 const {border, backgrount} = options.colors;
 console.log(border);
 
+// 33 ---------------------------------
+
+const arr = [2, 3, 6, 8, 10];
+
+// arr.pop(); // delet last key in massif
+// arr.push(10); // add last key to massif
+
+// console.log(arr);
+
+for (let i = 0; i < arr.length; i++) {
+	console.log(arr[i]);
+}
+
+// -------------------------
+
+const arr = [2, 3, 6, 8, 10];
+
+for (let value of arr) {
+	console.log(value);
+}
+
+// ----------------------------
+
+const arr = [2, 3, 6, 8, 10];
+arr[99] = 0;
+console.log(arr.length);
+console.log(arr);
+
+//-----------------------------
+
+const arr = [2, 3, 6, 8, 10];
+
+arr.forEach(function(item, numberOfItem, arr) {
+	console.log(`${numberOfItem}: ${item} внутри массива ${arr}`);
+})
+
+// ----------------------------------------
+
+const str = prompt("", "");
+const products = str.split(", ");
+// console.log(products);
+console.log(products.join('; '));
+
+//---------------------------------------------
+
+const arr = [2, 13, 26, 8, 10];
+arr.sort(compareNum);
+console.log(arr);
+
+function compareNum(a,b) {
+	return a - b;
+}
+//----------------------------------
