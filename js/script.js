@@ -313,7 +313,7 @@ function done() {
 }
 learnJS('JavaScript', done);
 
-// 31 ------------------------------------------------
+// 32 ------------------------------------------------
 
 const options = {
 	name: 'test',
@@ -329,7 +329,7 @@ const options = {
 // delete options.name;
 // console.log(options);
  
-let counter = 0;
+let counter = 0; // Сounter
 
 for (let key in options) {
 	if (typeof(options[key]) === 'object') {
@@ -364,7 +364,7 @@ options.makeTest();
 //console.log(Object.keys(options));
 console.log(Object.keys(options).length);
 
-//--------------------------------
+// --------------------------------
 
 const options = {
 	name: 'test',
