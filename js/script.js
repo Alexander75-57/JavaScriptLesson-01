@@ -1,6 +1,7 @@
-// 2-40 --------------------------------------------
-
 'use strict';
+
+/*
+// 2-40 --------------------------------------------
 
 let number = 5; debugger
 
@@ -171,5 +172,32 @@ const result = getTotalProgressByRecursion(students);
 
 console.log(result[0]/result[1]);
 
-//---------------------------------------------
+// 49 ------------------------------------------
 
+// touchstart
+// touchmove
+// touchend
+// tochenter
+// touchleave
+// touchcancel
+
+*/
+// 50 -------------------------------------------
+
+const p = document.querySelectorAll('p');
+console.log(p);
+
+
+// const script = document.createElement('script');
+// script.src = "js/test.js";
+// script.async = false;
+// document.body.append(script);
+
+function loadScript(src) {
+	const script = document.createElement('script');
+    script.src = src;
+    script.async = false;
+    document.body.append(script);
+};
+loadScript("js/test.js");
+loadScript("js/some.js");
