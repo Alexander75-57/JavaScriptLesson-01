@@ -183,7 +183,7 @@ console.log(result[0]/result[1]);
 
 */
 // 50 -------------------------------------------
-
+/*
 const p = document.querySelectorAll('p');
 console.log(p);
 
@@ -201,3 +201,67 @@ function loadScript(src) {
 };
 loadScript("js/test.js");
 loadScript("js/some.js");
+*/
+// 66 -----------------------------
+/*
+function func() {
+//	something = "string"; без обьявленмя переменной это тоже самое что и
+//  как создание глобальной переменой и неможет быть удалена из памяти
+	windows.something = "string"; 
+};
+*/
+//--------------------------------------
+/*
+const someRes = getData();
+const node = document.querySelector('.class');
+
+setInterval(func() {
+	if (node) {
+		node.innerHTML = someRes; 
+	}
+}, 1000);
+*/
+//-------------------------------------------
+/*
+function outerFunction() {
+	const potentiallyHugeArray = [];
+	return function inner() {
+		potentiallyHugeArray.push('Helloy');
+		console.log('Function Helloy');
+	} 
+};
+const sayHelloy = outerFunction(); // учечка памяти
+*/
+// ----------------------------------
+
+function createElement() {
+	const div = document.createElement('div');
+	div.id = 'test';
+	return div;
+};
+
+const testDiv = createElement(); // утечка памяти
+document.body.append(testDiv);
+
+function deletElement() {
+	document.body.removeChild(document.getElementById('test'));
+}
+deletElement();
+
+// исправляем на:
+
+function createElement() {
+	const div = document.createElement('div');
+	div.id = 'test';
+	document.body.append(testDiv);
+};
+
+createElement();
+
+function deletElement() {
+	document.body.removeChild(document.getElementById('test'));
+}
+deletElement();
+
+//---------------------------------
+
