@@ -309,7 +309,7 @@ console.log(cashe.has(alex));
 //--------------------------
 // WeakMap - может add, has, delet, get
 // WeakSet - может add, has, delet, неможет перебираться
-
+/*
 let messages = [
 	{text: 'Hello', from: 'Ivan'},
 	{text: 'World', from: 'Alex'},
@@ -324,6 +324,54 @@ messages.shift(); // удаляем первый обьет массива messa
 
 console.log(readMessages.has(messages[0]));
 
-// ----------------------------------------------------
+// 68 -----------------------------------------------
+
+const now = new Date();
+console.log(now); // выводит 2023-12-18T12:46:27.228Z
+
+//--------------------------
+const now = new Date('2023-12-18');
+console.log(now); // выводит 22023-12-18T00:00:00.000Z
+
+//-----------------------------
+const now = new Date(2023, 7, 23, 12);
+console.log(now);
+
+//-------------------
+
+const now = new Date();
+console.log(now.getFullYear());
+console.log(now.getMonth());
+console.log(now.getDate());
+console.log(now.getDay());
+console.log(now.getHours());
+console.log(now.getUTCHours());
+
+//****************************
+
+const now = new Date();
+
+console.log(now.getTimezoneOffset());
+console.log(now.getTime());
+*/
+//-----------------------
+/*
+const now = new Date('2023-12-18T');
+ // new Date.parsel('2023-12-18');
+
+
+console.log(now.setHours(18, 45));
+console.log(now);
+*/
+
+let start = new Date();
+
+for (let i = 0; i < 1000000; i++) {
+	let some = i ** 3;
+};
+
+let end = new Date();
+
+alert(`Цикл отработал за ${end - start} миллисекунд`);
 
 
