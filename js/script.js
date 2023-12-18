@@ -233,7 +233,7 @@ function outerFunction() {
 const sayHelloy = outerFunction(); // учечка памяти
 */
 // ----------------------------------
-
+/*
 function createElement() {
 	const div = document.createElement('div');
 	div.id = 'test';
@@ -262,6 +262,68 @@ function deletElement() {
 	document.body.removeChild(document.getElementById('test'));
 }
 deletElement();
+*/
+//67 ---------------------------------
+/*
+let user = {name: 'Ivan'};
 
-//---------------------------------
+const arr = [user]; // после удаления следующей строкой массив будет существоаать в памяти это
+user = null; // то же утечка памяти, так существует на него сылка
+
+console.log(user);
+console.log(arr[0]);
+*/
+// исправляем на --------------------------
+/*
+let user = {name: 'Ivan'};
+
+let map = new WeakMap();
+map.set(user, 'data');
+
+user = null; 
+
+console.log(map.has(user));
+*/
+//------------------------------
+/*
+let cashe = new WeakMap();
+
+function casheUser(user) {
+	if (!cashe.has(user)) {
+		cashe.set(user, Date.now());
+	}
+	return cashe.get(user);
+};
+
+let lena = {name: 'Elena'};
+let alex = {name: 'Alexander'};
+
+casheUser(lena);
+casheUser(alex);
+
+lena = null;
+
+console.log(cashe.has(lena));
+console.log(cashe.has(alex));
+*/
+//--------------------------
+// WeakMap - может add, has, delet, get
+// WeakSet - может add, has, delet, неможет перебираться
+
+let messages = [
+	{text: 'Hello', from: 'Ivan'},
+	{text: 'World', from: 'Alex'},
+	{text: '.....', from: 'Elena'},
+];
+
+let readMessages = new WeakSet();
+
+readMessages.add(messages[0]);
+//readMessages.add(messages[1]);
+messages.shift(); // удаляем первый обьет массива message
+
+console.log(readMessages.has(messages[0]));
+
+// ----------------------------------------------------
+
 
