@@ -460,7 +460,7 @@ obj.sum();
 // будет- undefined;
 
 //3-й способ будет конструктор ------------------------
-// this  в конструторах и классах - это новй экземпляр обьекта;
+// this  в конструторах и классах - это новий экземпляр обьекта;
 /*
 function User(name, id) {
 	this.name = name;
@@ -557,8 +557,56 @@ const btn = document.querySelector('button');
 btn.addEventListener('click', () => {
 	this.style.backgroundColor = 'red'; // работать не будет
 });
-// нужно исправить тог да см ниже
+// нужно исправить на см ниже
 btn.addEventListener('click', (e) => {
 	e.target.this.style.backgroundColor = 'red'; // работать не будет
 });
 
+// 04-77 ------------------------------------------------
+/*
+class Rectangle {
+	constructor(height, width) {                 //созадали новий обьект сос своствами
+		this.height = height;
+		this.width = width;
+	}
+
+	calcArea() {                               // создали метод класса новому обьекту 
+		return this.height * this.width;
+	}
+}
+
+const square =  new Rectangle(10,10);   //создаём обьект с помощью класса Rectangle
+console.log(square.calcArea());
+
+const long = new Rectangle(20, 100);
+console.log(long.calcArea());
+*/
+//----------------------------------
+
+class Rectangle {
+	constructor(height, width) {                
+		this.height = height;
+		this.width = width;
+	}
+	calcArea() {                               
+		return this.height * this.width;
+	}
+}
+
+class ColoredRectangleWithText extends Rectangle {
+	constructor(height, width, text, bgColor) {
+		super(height, width);
+		this.text = text;
+		this.bgColor = bgColor;
+	}
+
+	showMyProps() {
+		console.log(`текст: ${this.text}, цвет: ${this.bgColor}`); 
+	}
+
+}
+
+const div = new ColoredRectangleWithText(25, 10, 'Hello World', 'red');
+
+div.showMyProps();
+console.log(div.calcArea()); 
