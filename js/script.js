@@ -375,7 +375,7 @@ let end = new Date();
 alert(`Цикл отработал за ${end - start} миллисекунд`);
 */
 // 04-75 --------------
-
+/*
 function User(name, id) {
 	this.name = name;
 	this.id = id;
@@ -407,6 +407,158 @@ console.log(alex);
 // User { name: 'Ivan', id: 28, human: true }
 // User { name: 'Alex', id: 25, human: true }
 // обьект со свойстами - name, user ..., значение Ivan ....;
-
+*/
 // 04-76 ------------------------------
+
+// способы вызова фукции
+/*
+function showThis() {
+	console.log(this);
+}
+showThis();
+//1) вверху обычная функция: this = windows, но если стоит 'use strict' то будет- undefined;
+*/
+//-------------------------------------
+/*
+function showThis(a, b) {
+	console.log(this);
+	function sum() {
+		console.log(this);
+		return a + b;
+	}
+
+	console.log(sum());
+}
+showThis(4, 5); 
+*/
+// 2-й способ ниже --------------------------
+/*
+const obj = {
+	a: 20,
+	b: 15,
+	sum: function() {
+		console.log(this);
+	}
+};
+obj.sum();
+//контекст у метода (в даном случаи "sum") обьекта - будет сам обьект;
+*/
+// но если добавить в метотд ещё фукцию 
+/*
+const obj = {
+	a: 20,
+	b: 15,
+	sum: function() {
+		function shout() {
+			console.log(this);
+		}
+		shout();		
+	}
+};
+obj.sum();
+*/
+// будет- undefined;
+
+//3-й способ будет конструктор ------------------------
+// this  в конструторах и классах - это новй экземпляр обьекта;
+/*
+function User(name, id) {
+	this.name = name;
+	this.id = id;
+	this.human = true;
+	this.hello = function() {
+		console.log(`Hello ${this.name}`)
+	};	
+}
+
+const ivan = new User('Ivan', 28); 
+const alex = new User('Alex', 25);
+*/
+//4-й споасоб -----------------------
+/*
+function sayName() {
+	console.log(this);
+	console.log(this.name);
+
+}
+
+const user = {
+	name: 'John' 
+};
+// 1) метод вызова функции через ".call":
+sayName.call(user);
+// 2) метод вызова функции через ".apply":
+sayName.apply(user);
+*/
+// ----------------------------
+/*
+function sayName(surname) {
+	console.log(this);
+	console.log(this.name + surname);
+}
+
+const user = {
+	name: 'John' 
+};
+
+sayName.call(user, 'Smith');
+sayName.apply(user, ['Smith']);
+
+// 3-й метод вызова
+
+function count(num) {
+	return this*num;
+};
+
+//в переменную 'double' вставим фукцию
+const double = count.bind(2);
+console.log(double(10));
+
+// 4-й способ - метод Ручная привязка через this: call, apply, bind
+// -----------------------
+
+const btn = document.querySelector('button');
+
+btn.addEventListener('click', function(){
+	console.log(this);
+});
+// через function при кликанье на обьект "this" - вызываем сам обьект
+btn.addEventListener('click', function(){
+	this.style.backgroundColor = 'red'; // заменили фон обьекта
+});
+*/
+
+const obj = {
+	num: 5,
+	sayNumber: function() {
+		const say = () => {    // переделатьв обычную функцию выведет ошибку
+			console.log(this);
+		}
+		say();
+	}
+};
+
+obj.sayNumber();
+
+//------------------------------------
+
+const double = (a) => {
+	return a * 2;
+}
+// если в одну строку то можно написать так:
+
+const double = (a) => a * 2;
+
+// ------------------------------------
+// но если заменить обычную функуцию на стрелочную ниже
+
+const btn = document.querySelector('button');
+
+btn.addEventListener('click', () => {
+	this.style.backgroundColor = 'red'; // работать не будет
+});
+// нужно исправить тог да см ниже
+btn.addEventListener('click', (e) => {
+	e.target.this.style.backgroundColor = 'red'; // работать не будет
+});
 
