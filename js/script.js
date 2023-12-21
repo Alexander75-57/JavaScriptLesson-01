@@ -363,7 +363,7 @@ const now = new Date('2023-12-18T');
 console.log(now.setHours(18, 45));
 console.log(now);
 */
-
+/*
 let start = new Date();
 
 for (let i = 0; i < 1000000; i++) {
@@ -373,5 +373,40 @@ for (let i = 0; i < 1000000; i++) {
 let end = new Date();
 
 alert(`Цикл отработал за ${end - start} миллисекунд`);
+*/
+// 04-75 --------------
 
+function User(name, id) {
+	this.name = name;
+	this.id = id;
+	this.human = true;
+	this.hello = function() {
+		console.log(`Hello ${this.name}`)
+	}
+}
+
+User.prototype.exit = function(){
+	console.log(`Пользователь ${this.name} ушёл`);
+}
+//добавили с помощью prototype - метод в обьект;
+
+const ivan = new User('Ivan', 28); 
+// ivan новый обьект соссвойствами функции User;
+// function User -конструкторж
+//this.hello - добавляем метод.
+const alex = new User('Alex', 25);
+
+ivan.hello();
+alex.hello();
+// вызов метода обьекта
+ivan.exit();
+
+console.log(ivan);
+console.log(alex);
+// выводит:
+// User { name: 'Ivan', id: 28, human: true }
+// User { name: 'Alex', id: 25, human: true }
+// обьект со свойстами - name, user ..., значение Ivan ....;
+
+// 04-76 ------------------------------
 
