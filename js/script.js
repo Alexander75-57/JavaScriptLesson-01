@@ -527,7 +527,7 @@ btn.addEventListener('click', function(){
 	this.style.backgroundColor = 'red'; // заменили фон обьекта
 });
 */
-
+/*
 const obj = {
 	num: 5,
 	sayNumber: function() {
@@ -539,9 +539,9 @@ const obj = {
 };
 
 obj.sayNumber();
-
+*/
 //------------------------------------
-
+/*
 const double = (a) => {
 	return a * 2;
 }
@@ -582,7 +582,7 @@ const long = new Rectangle(20, 100);
 console.log(long.calcArea());
 */
 //----------------------------------
-
+/*
 class Rectangle {
 	constructor(height, width) {                
 		this.height = height;
@@ -610,3 +610,22 @@ const div = new ColoredRectangleWithText(25, 10, 'Hello World', 'red');
 
 div.showMyProps();
 console.log(div.calcArea()); 
+*/
+
+// 04-80  --------------------------------------
+
+const log = function(a, b, ...rest) {
+	console.log(a, b, rest);
+}
+log('basic', 'java', 'operator', 'block');
+
+// выводит basic java [ 'operator', 'block' ] - значения остатка выводятся в массиве
+
+function calcOrDouble(number, basis = 2) {
+	console.log(number * basis);
+}
+
+calcOrDouble(3, 5);
+calcOrDouble(3);
+
+//----------------------------------
