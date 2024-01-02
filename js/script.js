@@ -271,6 +271,117 @@ Promise.race([test(1000), test(2000)]).then(() => {
 	console.log('ALL'); // выполнится через 1 сек (1000 ms)
 });
 */
-//-------------------------------
+
+//05-88 Методы перебора массивов -----------------------
+/*
+// filter - метод - филдьтрует и возвращает новый массив;
+const names = ['Ivan', 'Ann', 'Ksenia', 'Oleksandr'];
+
+const shortNames = names.filter(function(name) {
+	return name.length < 5;
+});
+console.log(shortNames);
+// -------------------------------------
+
+// map - метод изменяем исходный массив
+const answer = ['IvAn', 'AnnA', 'Hello'];
+/*
+const result = answer.map(item => {
+	return item.toLowerCase();
+})
+*//* //так как  одна строка упрощаем
+const result = answer.map(item => item.toLowerCase());
+console.log(result);
+//----------------------------
+// модернизируем запись- Но лучше делать через пересенную как выше;
+let answer = ['IvAn', 'AnnA', 'Hello'];
+answer = answer.map(item => item.toLowerCase());
+console.log(answer);
+//-------------------------------------
+*/
+// every и some - методы - возвращают True или False булиновые значения;
+/*
+const arr = [4, 'fhfhf', 'yiyigjkgjkgy'];
+
+console.log(arr.some(item => typeof(item) === 'number'));
+// получаем в консоль - true
+//-------------------------
+
+const arr = [4, 'fhfhf', 'yiyigjkgjkgy'];
+console.log(arr.every(item => typeof(item) === 'number'));
+// получаем в консоль - false;
+*/
+// reduce - метод   собирать массив в одно целое ------------------
+/*
+const arr = [4, 5, 1, 2, 3, 6];
+const result = arr.reduce((sum, current) => sum + current);
+
+//сперва sum=0, идёт
+//первый этап 0+4
+//затем 4+5
+//затем 9 + 1 и т.д
+console.log(result);
+*/
+// ------------------------
+/*
+const arr = ['apple', 'pear', 'solt', 'plum'];
+const result = arr.reduce((sum, current) => sum + ', ' + current);
+
+console.log(result);
+// или модернизировать:
+const arr = ['apple', 'pear', 'solt', 'plum'];
+const result = arr.reduce((sum, current) => `${sum}, ${current}`);
+
+console.log(result);
+*/
+// --------------------------
+/*
+const arr = [4, 5, 1, 2, 3, 6];
+const result = arr.reduce((sum, current) => sum + current, 3); // первоначальное значение будет 3;
+
+console.log(result)
+*/
+//-------------------
+
+const obj = {
+	Ivan: 'person',
+	ann: 'person',
+	dog: 'animal',
+	cat: 'animal'
+};
+
+const newArr = Object.entries(obj);
+
+// Object.entries - меняет обьект на массив в массиве
+
+console.log(newArr);
+
+// ----------------------
+
+const obj = {
+	ivan: 'person',
+	ann: 'person',
+	dog: 'animal',
+	cat: 'animal'
+};
+
+const newArr = Object.entries(obj)
+.filter(item => item[1] === 'person')
+.map(item => item[0]);
+
+// Object.entries - меняет обьект на массив в массиве и к массиву применяем метод filter и map;
+
+console.log(newArr);
+
+//-----------------
+
+
+
+
+
+
+
+
+
 
 
