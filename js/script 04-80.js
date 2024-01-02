@@ -380,43 +380,69 @@ function User(name, id) {
 	this.name = name;
 	this.id = id;
 	this.human = true;
+}
+
+const ivan = new User('Ivan', 28); 
+// ivan новый обьект соссвойствами функции User;
+// function User -конструктор;
+const alex = new User('Alex', 25);
+
+console.log(ivan);
+console.log(alex);
+// выводит обьект:
+// User { name: 'Ivan', id: 28, human: true }
+// User { name: 'Alex', id: 25, human: true }
+// обьект со свойстами - name, user ..., значение Ivan ....;
+
+// --------------------------------------------
+//this.hello - добавляем в конструктор обьекта его метод (функция).
+
+function User(name, id) {
+	this.name = name;
+	this.id = id;
+	this.human = true;
 	this.hello = function() {
 		console.log(`Hello ${this.name}`)
 	}
 }
 
-User.prototype.exit = function(){
-	console.log(`Пользователь ${this.name} ушёл`);
-}
-//добавили с помощью prototype - метод в обьект;
-
 const ivan = new User('Ivan', 28); 
-// ivan новый обьект соссвойствами функции User;
-// function User -конструкторж
-//this.hello - добавляем метод.
 const alex = new User('Alex', 25);
 
 ivan.hello();
 alex.hello();
+
+// -----------------------------------
+//добавили с помощью prototype - метод в обьект нашего конструтор из в не;
+
+function User(name, id) {
+	this.name = name;
+	this.id = id;
+	this.human = true;
+	this.hello = function() {
+		console.log(`Hello ${this.name}`)
+	}
+}
+User.prototype.exit = function(name){
+	console.log(`Пользователь ${this.name} ушёл`);
+}
+
+const ivan = new User('Ivan', 28); 
+const alex = new User('Alex', 25);
+
 // вызов метода обьекта
 ivan.exit();
-
-console.log(ivan);
-console.log(alex);
-// выводит:
-// User { name: 'Ivan', id: 28, human: true }
-// User { name: 'Alex', id: 25, human: true }
-// обьект со свойстами - name, user ..., значение Ivan ....;
 */
 // 04-76 ------------------------------
-
+// this - то что окружает функцию и как она вызывается
 // способы вызова фукции
 /*
+//1) ниже обычная функция: используя this будет выводит консоль - windows, но если стоит 'use strict' то будет- undefined;
+
 function showThis() {
 	console.log(this);
 }
 showThis();
-//1) вверху обычная функция: используя this будет выводит консоль - windows, но если стоит 'use strict' то будет- undefined;
 */
 //-------------------------------------
 /*
@@ -424,10 +450,9 @@ function showThis(a, b) {
 	console.log(this);
 	function sum() {
 		console.log(this);
-		return a + b;
+		return a + b; // замыкание функции, после замыкания если не анходит внутри себя "a" и "b" ищет во внешней среде;
 	}
-
-	console.log(sum());
+	console.log(sum()); // - результат функцтт sum;
 }
 showThis(4, 5); 
 */
@@ -457,9 +482,9 @@ const obj = {
 };
 obj.sum();
 */
-// будет- undefined; так как функция внутри метода обьекта, а не в самом обьекте;
+// будет- undefined; так как функция простая фнукция внутри метода обьекта, а не в самом обьекте и котекст вызова она потеряла;
 
-//3-й способ будет конструктор ------------------------
+//3-й способ будет конструктор через оператор new ---------------------
 // this  в конструторах и классах - это новий экземпляр обьекта;
 /*
 function User(name, id) {
@@ -474,12 +499,11 @@ function User(name, id) {
 const ivan = new User('Ivan', 28); 
 const alex = new User('Alex', 25);
 */
-//4-й споасоб -----------------------
+//4-й споасоб ручное присваение -------------------
 /*
 function sayName() {
-	console.log(this);
-	console.log(this.name);
-
+	console.log(this); // покажет обьект целиком;
+	console.log(this.name); / покажет заначение ключа обьекта;
 }
 
 const user = {
@@ -510,10 +534,10 @@ function count(num) {
 	return this*num;
 };
 
-const double = count.bind(2); //переменную 'double' вставляем в фукцию(count);
+const double = count.bind(2); //в переменную 'double' вставляем в фукцию(count) в данноом случае this это 2;
 console.log(double(10));
 
-// 4-й способ - метод Ручная привязка через this: call, apply, bind
+// 4-й способ - Ручная привязка this через: call, apply, bind
 // -----------------------
 
 const btn = document.querySelector('button');
@@ -530,13 +554,14 @@ btn.addEventListener('click', function(){
 const obj = {
 	num: 5,
 	sayNumber: function() {
-		const say = () => {    // переделатьв обычную функцию выведет ошибку
+
+		const say = () => {    
 			console.log(this.num);
+// переделатьв обычную функцию выведет ошибку, стрелочная функция может брать аргументы из вне;
 		}
 		say();
 	}
 };
-
 obj.sayNumber(); // обращемся к обьекту и вызываем его метод(sayNumber); водит в консоль 5;
 */
 //------------------------------------
@@ -556,22 +581,23 @@ console.log(double(4)); // выводит вконсоль 8;
 const btn = document.querySelector('button');
 
 btn.addEventListener('click', () => {
-	this.style.backgroundColor = 'red'; // this работать не будет на стрелочной функции;
+	this.style.backgroundColor = 'red'; // this работать не будет на стрелочной функции так как у стрелояной функции нет аргумента в скобках пусто(не может к чему то обратиться);
 });
-// нужно исправить на см ниже
+// нужно исправить на см ниже (this заменяем на e.target)
 btn.addEventListener('click', (e) => {
-	e.target.this.style.backgroundColor = 'red'; // работать будет
+	e.target.style.backgroundColor = 'red'; // работать будет
 });
 
 // 04-77 ------------------------------------------------
-/*
+/* 
+// класс начинается с большой Буквы; класс - это как шаблон для создания обьекта со своими методами и свойствами;
+
 class Rectangle {
-	constructor(height, width) {                 //созадали новий обьект сос своствами
+	constructor(height, width) {  //созадали новий обьект со своствами
 		this.height = height;
 		this.width = width;
 	}
-
-	calcArea() {                               // создали метод класса новому обьекту 
+	calcArea() {  // создали метод класса новому обьекту 
 		return this.height * this.width;
 	}
 }
@@ -595,8 +621,9 @@ class Rectangle {
 }
 
 class ColoredRectangleWithText extends Rectangle {
+// extends - наследование, класс-ColoredRectangleWithText наследует своства класса-Rectangle;
 	constructor(height, width, text, bgColor) {
-		super(height, width);
+		super(height, width); // метод - super, вызывает свойства из наследуемого класса;
 		this.text = text;
 		this.bgColor = bgColor;
 	}
