@@ -81,7 +81,7 @@ req.then((product) => {
 	}, 4000);
 });
 */
-// ---------------------------------------
+// упрощаем конструкцию Promise---------------------------------
 /*
 console.log('Запрос данных.....');
 
@@ -140,7 +140,7 @@ req.then((product) => {
 });
 */
 // ------------------------------------
-
+/*
 console.log('Запрос данных.....');
 
 const req = new Promise(function(resolve, reject) {
@@ -169,7 +169,7 @@ req.then((product) => {
 	console.log(data);
 });
 
-// ниже тест на Reject - если не волнелось условие, завис сервер т.д.;
+// ниже тест на Reject - если не выполнелось условие, завис сервер т.д.;
 
 console.log('Запрос данных.....');
 
@@ -237,7 +237,7 @@ req.then((product) => {
 	console.log('Finally');
 });
 
-// метод all и race ---------------------
+// у Promise есть метод all и race ---------------------
 
 const test = time => {
 	return new Promise(resolve => {
@@ -255,7 +255,7 @@ const test = time => {
 			setTimeout(() => resolve(), time);
 	});
 };
-// Promise.all - выподняется после завершения всех промисов, при положительном резкльтате будет then, при отрицательном catch;
+// Promise.all - выподняется после завершения всех промисов, при положительном результате будет then, при отрицательном catch;
 Promise.all([test(1000), test(2000)]).then(() => {
 	console.log('ALL');
 });
@@ -270,3 +270,7 @@ const test = time => {
 Promise.race([test(1000), test(2000)]).then(() => {
 	console.log('ALL'); // выполнится через 1 сек (1000 ms)
 });
+*/
+//-------------------------------
+
+

@@ -627,11 +627,9 @@ class ColoredRectangleWithText extends Rectangle {
 		this.text = text;
 		this.bgColor = bgColor;
 	}
-
 	showMyProps() {
 		console.log(`текст: ${this.text}, цвет: ${this.bgColor}`); 
 	}
-
 }
 
 const div = new ColoredRectangleWithText(25, 10, 'Hello World', 'red');
