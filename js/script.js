@@ -342,7 +342,7 @@ const result = arr.reduce((sum, current) => sum + current, 3); // первона
 console.log(result)
 */
 //-------------------
-
+/*
 const obj = {
 	Ivan: 'person',
 	ann: 'person',
@@ -372,8 +372,60 @@ const newArr = Object.entries(obj)
 // Object.entries - меняет обьект на массив в массиве и к массиву применяем метод filter и map;
 
 console.log(newArr);
+*/
+//05-96 -----------------
+/*
+// new RegExp('pattern', 'flags');
+// /pattern/f
+const ans = prompt('Введите ваше имя');
+const reg = /n/;
+// ищем внутри строки ввода "n";
+// метод search - результат в виде если найдено: 1; если нет: -1
+console.log(ans.search(reg)); 
 
-//-----------------
+// Флаги
+// i - что то найти внезависимости от регистра
+// g - флаг глобальносьти,найти несколько нахождений;
+// m - поиск в многострочном режиме;
+*/
+//метод - match, результат в виде массива
+/*
+const ans = prompt('Введите ваше имя');
+const reg = /n/ig;
+console.log(ans.match(reg));
+*/
+// Replace - метод замены----------------------
+/*
+const pass = prompt('Password');
+
+// 1-й аргумент что заменяем, 2-й на что заменяем;
+console.log(pass.replace(/./g, "*")); // /./g - регулярнык выражения;
+
+//заменяем девисы на двоеточие;
+console.log('12-34-56'.replace(/-/g, ':'));
+*/
+// Test - метод ------ возвращает True или Fals
+/*
+const ans = prompt('Введите ваше имя');
+const reg = /n/ig;
+
+console.log(reg.test(ans)); 
+// \d - ищем цифры
+// \w - ищем все слова и буквы
+// \s - ищем все пробелы
+*/
+/*
+const ans = prompt('Введите ваше число');
+const reg = /\d/g;
+console.log(ans.match(reg)); 
+*/ /*
+
+const str = 'My name is R2D2';
+console.log(str.match(/\w\d\w\d/i));
+*/
+// Обратные классы - ищем не буквы, не цифры и т.д.
+// \D - ищем не цифры
+// \W - ищем не слова и буквы
 
 
 

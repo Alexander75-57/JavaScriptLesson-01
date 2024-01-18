@@ -377,13 +377,13 @@ alert(`Цикл отработал за ${end - start} миллисекунд`);
 // 04-75 --------------
 /*
 function User(name, id) {
-	this.name = name;
+	this.name = name; //записываем свойства которые будут отображаться как в обьекте;
 	this.id = id;
 	this.human = true;
 }
 
 const ivan = new User('Ivan', 28); 
-// ivan новый обьект соссвойствами функции User;
+// const ivan новый обьект соссвойствами функции User;
 // function User -конструктор;
 const alex = new User('Alex', 25);
 
@@ -482,7 +482,7 @@ const obj = {
 };
 obj.sum();
 */
-// будет- undefined; так как функция простая фнукция внутри метода обьекта, а не в самом обьекте и котекст вызова она потеряла;
+// будет- undefined; так как функция простая фнукция внутри метода обьекта, а не в самом обьекте и контекст вызова она потеряла;
 
 //3-й способ будет конструктор через оператор new ---------------------
 // this  в конструторах и классах - это новий экземпляр обьекта;
@@ -604,7 +604,7 @@ class Rectangle {
 
 const square =  new Rectangle(10,10);   //создаём обьект с помощью класса Rectangle
 console.log(square.calcArea());
-
+console.log(square);
 const long = new Rectangle(20, 100);
 console.log(long.calcArea());
 */
@@ -623,7 +623,7 @@ class Rectangle {
 class ColoredRectangleWithText extends Rectangle {
 // extends - наследование, класс-ColoredRectangleWithText наследует своства класса-Rectangle;
 	constructor(height, width, text, bgColor) {
-		super(height, width); // метод - super, вызывает свойства из наследуемого класса;
+		super(height, width); // метод - super, вызывает свойства (коструктор) из наследуемого класса;
 		this.text = text;
 		this.bgColor = bgColor;
 	}
@@ -639,7 +639,7 @@ console.log(div.calcArea());
 */
 
 // 04-80  --------------------------------------
-
+/*
 const log = function(a, b, ...rest) {
 	console.log(a, b, rest);
 }
@@ -653,5 +653,5 @@ function calcOrDouble(number, basis = 2) {
 
 calcOrDouble(3, 5);
 calcOrDouble(3);
-
+*/
 //----------------------------------
