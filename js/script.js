@@ -378,12 +378,12 @@ console.log(newArr);
 // new RegExp('pattern', 'flags');
 // /pattern/f
 const ans = prompt('Введите ваше имя');
-const reg = /n/;
+const reg = /n/; // n -патерн, что ищем
 // ищем внутри строки ввода "n";
-// метод search - результат в виде если найдено: 1; если нет: -1
+// метод search - ищеет первое совпадение, результат в виде если найдено: 1; если нет: -1
 console.log(ans.search(reg)); 
 
-// Флаги
+// Флаги - своства поиска
 // i - что то найти внезависимости от регистра
 // g - флаг глобальносьти,найти несколько нахождений;
 // m - поиск в многострочном режиме;
@@ -427,13 +427,135 @@ console.log(str.match(/\w\d\w\d/i));
 // \D - ищем не цифры
 // \W - ищем не слова и буквы
 
+// 05 - 99 -своство обьектов акцесоры - get, set
+/*
+const persone = {
+	name: "Alex",
+	age: 25,
 
+	get userAge() {      // берем значение;
+		return this.age; 
+	},
+	set userAge(num) {   // назначаем значение;
+		this.age = num;   
+	}
+	
+};
+console.log(persone.userAge = 30);
+console.log(persone.userAge);
+*/
+// 05 - 100 Инкапсуляция - принцип обьектно орентированное програмирование
+/*
+// создаёи конструктор обьекта
+function User(name, age) {
+	this.name = name;
+	this.age = age;
 
+	this.say = function() {
+		console.log(`Имя пользователя: ${this.name}, возраст: ${this.age}`);
+	}
+};
+//создаём обьект спомощью конструктора
+const ivan = new User('Ivan', 27);
+//получаем свойства обьекта
+console.log(ivan.name);
+console.log(ivan.age);
+//можем менять значеня
+ivan.age = 30;
+ivan.name = 'Alex';
+// и вызовем метод обьекта say
+ivan.say();
+// результат:
+// Ivan
+// 27
+// Имя пользователя: Alex, возраст: 30
+*/
+// что бы избежать вмешательство из вне применяем Инкапсуляцию
+/*
+function User(name, age) {
+	this.name = name;
+	let userAge = age;
 
+	this.say = function() {
+		console.log(`Имя пользователя: ${this.name}, возраст: ${userAge}`);
+	}
+	// создаём функцию - метод для получения данных
+	this.getAge = function() {
+		return userAge;
+	}
+	// создаём функцию для изменения данных
+	this.setAge = function(age) {
+		if (typeof age === 'number' && age > 0 && age < 110) {
+			userAge = age;
+		} else {
+			console.log('Недопустимое значение');
+		}
+	} 
 
+};
+const ivan = new User('Ivan', 27);
+console.log(ivan.name);
+console.log(ivan.getAge());
 
+ivan.setAge(30);
+ivan.setAge(300);
+console.log(ivan.getAge());
+ivan.say();
+*/
+// преобразуем в классы
+/*
+class User {
+	constructor(name, age) {
+		this.name = name;
+	    this._age = age; // используем слодаж - "_"
+	}
+	
+	#surname = 'Morozov';  // # - создаёт приватное свойство
 
+	say = () => {
+		console.log(`Имя пользователя: ${this.name}, ${this.#surname}, возраст: ${this._age}`);
+	}
+	get age() {
+		return this._age;
+	}
+	set age(age) {
+		if (typeof age === 'number' && age > 0 && age < 110) {
+			this._age = age;
+		} else {
+			console.log('Недопустимое значение');
+		}
+	} 
+};
+const ivan = new User('Ivan', 27);
+/*
+console.log(ivan._age);
+ivan.age = 99;
+console.log(ivan._age);
+*//*
+console.log(ivan.surname);
+ivan.say();
+*/
+// 05 - 101 Модуль
+/*
+// 1-й способ через аннанимную самовызывающая функция
+const number = 1;
+(function(){
+	let number = 2;
+	console.log(number);
+	console.log(number+3);
+}());
+console.log(number);
+*/
 
+// 2-й способ  обьектный интерфейс
+const user = (function(){
+	const privat = function() {
+		console.log('I am privat!');
+	};
+	return {             // конструируем обьект и даём ему метод вызов ссылки privat;                                      
+		sayHello: privat
+	};
 
+}());
 
-
+user.sayHello();
