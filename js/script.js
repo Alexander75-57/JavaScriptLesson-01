@@ -548,6 +548,7 @@ console.log(number);
 */
 
 // 2-й способ  обьектный интерфейс
+/*
 const user = (function(){
 	const privat = function() {
 		console.log('I am privat!');
@@ -557,5 +558,80 @@ const user = (function(){
 	};
 
 }());
-
 user.sayHello();
+*/
+//05-102  Webpack - file main.js  "Webpack сборщик модулей"
+/*
+const myModule = require('./js/main'); // берём данные из файла main;
+
+const myModuleInstance = new myModule();
+
+myModuleInstance.hello();
+myModuleInstance.goodbye();
+*/
+// 05-106 Ошибки. Как избежать “поломки” своего кода
+// Конструкция try-catch;
+/*
+try {
+	console.log('Normal');
+	console.log(a); // вносим ошибку (a переменной такой нет) 
+	console.log('result');
+
+} catch(error) {     // в скобках запишется вид ошибка
+	console.log(error.name);
+	console.log(error.message);
+	console.log(error.stack);
+
+} 
+//finally {
+//
+// }
+console.log('Still normal');
+*/
+// 05 - 111 Генератор - функции
+// выдёют результат последовательно
+/*
+function* generator() {
+	yield 's';
+	yield 'c';
+	yield 'r';
+	yield 'i';
+	yield 'p';
+	yield 't';
+}
+const str = generator();
+
+// console.log(str.next()); // выводит { value: 's', done: false }
+// console.log(str.next()); // выводит{ value: 'c', done: false }
+// console.log(str.next()); // выводит{ value: 'r', done: false }
+// console.log(str.next()); // выводит{ value: 'i', done: false }
+// console.log(str.next()); // выводит{ value: 'p', done: false }
+// console.log(str.next()); // выводит{ value: 't', done: false }
+// console.log(str.next()); // выводит{ value: undefined, done: true }
+// -----------------
+console.log(str.next().value); // выводит s
+*/
+/*
+function* count(n) {
+	for(let i = 0; i < n; i++ ) {
+		yield i;
+	}
+}
+const counter = count(7);
+
+console.log(counter.next().value);
+console.log(counter.next().value);
+console.log(counter.next().value); // выводит каждый результат цикла
+*/
+/*
+function* count(n) {
+	for(let i = 0; i < n; i++ ) {
+		yield i;
+	}
+}
+
+for (let k of count(7)) {
+	console.log(k)
+}
+*/
+// 05-- 112
