@@ -634,4 +634,54 @@ for (let k of count(7)) {
 	console.log(k)
 }
 */
-// 05-- 112
+// 05-114. Event loop ---------------
+/*
+console.log(1);
+
+setTimeout(() => {
+	console.log('timeout_4000');
+}, 4000);
+
+setTimeout(() => {
+	console.log('timeout_4000');
+}, 4000);
+
+console.log(2);
+*/
+//---------------------
+/*
+setTimeout(() => {
+	console.log(1)	
+}, 0); // минимум по умолчанию 4 сек - 40000
+console.log(2);
+//выводит сперва 2 затем 1
+*/
+// 05-115 - микрозадачи - then, catch, finaly, await 
+/*
+setTimeout(() => console.log('timeout'));
+
+Promise.resolve()
+	.then(() => console.log('promise')); // микрозадача
+
+console.log('code');
+*/
+// 1) () => {}
+// 2) microtasks: then, catch, finaly, await 
+// 3) render 
+// 4) () = {}
+// 5) microtasks: then, catch, finaly, await
+// 6) .........
+
+setTimeout(() => console.log('timeout'));
+
+Promise.resolve()
+	.then(() => console.log('promise')); // микрозадача
+
+queueMicrotask(() => console.log('WOW')); // запуск внутри очереди микрозадач;
+
+Promise.resolve()
+.then(() => console.log('promise')); // микрозадача	
+
+console.log('code');
+
+// 05- 116 
